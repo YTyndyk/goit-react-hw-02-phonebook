@@ -1,5 +1,4 @@
 import React from 'react';
-import css from './ContactsList.css';
 
 const ContactsList = ({ contacts, onDeleteContact }) => (
   <ul>

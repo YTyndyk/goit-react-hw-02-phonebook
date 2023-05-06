@@ -3,7 +3,6 @@ import ContactsList from './ContactsList';
 import contacts from '../../src/contacts.json';
 import Form from './ContactsForm';
 import Filter from './Filter';
-import { nanoid } from 'nanoid';
 
 export class App extends Component {
   state = {

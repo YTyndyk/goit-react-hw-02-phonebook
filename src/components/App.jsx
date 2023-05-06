@@ -3,6 +3,7 @@ import ContactsList from './ContactsList';
 import contacts from '../../src/contacts.json';
 import Form from './ContactsForm';
 import Filter from './Filter';
+import css from './GlobalStyles.module.css';
 
 export class App extends Component {
   state = {
@@ -48,16 +49,15 @@ export class App extends Component {
       <div
         style={{
           height: '100vh',
-          // display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 16,
           color: '#010101',
         }}
       >
-        <h1>Phonebook</h1>
+        <h1 className={css.title}>Phonebook</h1>
         <Form onSubmit={this.addContact} />
-        <h2>Contacts</h2>
+        <h2 className={css.title}>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactsList
           contacts={visibleContacts}

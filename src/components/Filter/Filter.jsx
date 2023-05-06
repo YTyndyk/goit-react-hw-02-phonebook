@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import css from '../GlobalStyles.module.css';
 
 const Filter = ({ value, onChange }) => {
   return (
-    <label htmlFor="">
+    <label htmlFor="" className={css.labelFilter}>
       Find contacts by name
       <input
+        className={css.input}
         type="text"
         name="filter"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"

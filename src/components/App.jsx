@@ -17,18 +17,20 @@ export class App extends Component {
     }));
   };
 
-  addContact = data => {
-    console.log(data);
-    const contact = {
-      id: nanoid(),
-      name: data.name,
-      number: data.number,
-    };
-    this.setState(({ contacts }) => ({
-      contacts: [contact, ...contacts],
-    }));
+  addContact = newContact => {
+    this.state.contacts.filter(
+      contact =>
+        contact.name.toLowerCase().trim() ===
+          newContact.name.toLowerCase().trim() ||
+        contact.number.trim() === newContact.number.trim()
+    ).length
+      ? alert(`${newContact.name}: is already in contacts`)
+      : this.setState(prevState => {
+          return {
+            contacts: [newContact, ...prevState.contacts],
+          };
+        });
   };
-
   changeFilter = e => {
     this.setState({ filter: e.currentTarget.value.toLowerCase() });
   };
@@ -54,7 +56,7 @@ export class App extends Component {
           color: '#010101',
         }}
       >
-        <h2>Phonebook</h2>
+        <h1>Phonebook</h1>
         <Form onSubmit={this.addContact} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
